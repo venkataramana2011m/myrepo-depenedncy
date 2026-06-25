@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive SVG Map Demo</title>
+  <style>
+    svg {
+      width: 600px;
+      height: 400px;
+      border: 1px solid #ccc;
+    }
+    path {
+      fill: #cccccc;
+      stroke: #000000;
+      cursor: pointer;
+      transition: fill 0.3s;
+    }
+    path:hover {
+      fill: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <h2>Interactive SVG Map</h2>
+  <svg viewBox="0 0 600 400">
+    <path id="region1" d="M10,10 L100,10 L100,100 L10,100 Z" />
+    <path id="region2" d="M110,10 L200,10 L200,100 L110,100 Z" />
+  </svg>
+
+  <script>
+    document.querySelectorAll('path').forEach(region => {
+      region.addEventListener('click', () => {
+        alert(`You clicked on ${region.id}`);
+        region.style.fill = '#00ccff';
+      });
+    });
+  </script>
+</body>
+</html>

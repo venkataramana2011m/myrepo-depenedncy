@@ -1,0 +1,46 @@
+<?php
+$query = str_replace(
+          array('.html','.htm','.php','/','clickable-maps',
+                'world-continents',
+                'osterreich',
+                'brasil',
+                'cesko',
+                'france2016',
+                'departements-francais',
+                'deutschland',
+                'italia',
+                'nederland',
+                '-delt',
+                'norge',
+                'polska',
+                'slovensko',
+                'espana',
+                'espana-autonomias',
+                'sverige',
+                'turkiye',
+                'united-states'
+               ), 
+          array('','','','','',
+                'continents',
+                'austria',
+                'brazil',
+                'czech-republic',
+                'france',
+                'france-departments',
+                'germany',
+                'italy',
+                'netherlands',
+                '',
+                'norway',
+                'poland',
+                'slovakia',
+                'spain',
+                'spain-autonomies',
+                'sweden',
+                'turkey',
+                'usa'
+               ),
+          $_SERVER['REQUEST_URI']
+        );
+header('Location: https://cssmapsplugin.com/'.($query ? 'get/'.$query : ''), 301); exit;
+?>
